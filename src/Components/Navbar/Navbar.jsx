@@ -90,7 +90,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end space-x-2">
         {user ? (
-          <div className="flex gap-3 items-center">
+          <div className="flex gap-2 items-center">
             <img
               src={user.photoURL}
               alt=""
@@ -109,7 +109,7 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
-          <div className="flex gap-3 items-center">
+          <div className="flex gap-2 items-center">
             <Link to="/login">
               <button className="btn btn-success text-xl">Login</button>
             </Link>
