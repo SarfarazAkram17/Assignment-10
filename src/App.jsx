@@ -4,8 +4,6 @@ function App() {
 
   return (
     <>
-      
-      <h1>Assignment 10</h1>
 
     </>
   )
