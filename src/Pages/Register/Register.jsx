@@ -5,22 +5,27 @@ import { AuthContext } from "../../Authentication/AuthContext";
 import { toast } from "react-toastify";
 
 const Register = () => {
-  const { createUser, googleLogin } = useContext(AuthContext);
+  const { createUser, googleLogin, updateUserProfile } =
+    useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    // const name = formData.get("name");
+    const name = formData.get("name");
     const email = formData.get("email");
-    // const photo = formData.get("photo");
+    const photo = formData.get("photo");
     const password = formData.get("password");
 
     createUser(email, password)
-      .then(() => {
+      .then((res) => {
         toast.success("You registered successfully");
+        updateUserProfile(name, photo)
+         .then(()=>{console.log(res)})
+         .catch(error => toast.error(error.code))
         form.reset();
+
       })
       .catch((error) => toast.error(error.code));
   };
