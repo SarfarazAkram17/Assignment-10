@@ -5,22 +5,30 @@ import { AuthContext } from "../../Authentication/AuthContext";
 import { toast } from "react-toastify";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, googleLogin } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
-    const name = formData.get("name");
+    // const name = formData.get("name");
     const email = formData.get("email");
-    const photo = formData.get("photo");
+    // const photo = formData.get("photo");
     const password = formData.get("password");
 
     createUser(email, password)
       .then(() => {
         toast.success("You registered successfully");
-        form.reset()
+        form.reset();
+      })
+      .catch((error) => toast.error(error.code));
+  };
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+      .then(() => {
+        toast.success("You registered successfully");
       })
       .catch((error) => toast.error(error.code));
   };
@@ -81,7 +89,10 @@ const Register = () => {
           </p>
         </form>
         {/* Google */}
-        <button className="btn bg-white text-black mt-6 text-lg border-[#e5e5e5]">
+        <button
+          onClick={handleGoogleLogin}
+          className="btn bg-white text-black mt-6 text-lg border-[#e5e5e5]"
+        >
           <svg
             aria-label="Google logo"
             width="20"
@@ -109,7 +120,7 @@ const Register = () => {
               ></path>
             </g>
           </svg>
-          Login with Google
+          Continue with Google
         </button>
       </div>
     </div>
