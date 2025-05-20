@@ -16,3 +16,4 @@ tailwind css
 daisiui
 sweet alert2
 react toastify
+react-tooltip

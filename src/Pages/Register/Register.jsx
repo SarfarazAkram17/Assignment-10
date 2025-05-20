@@ -18,14 +18,32 @@ const Register = () => {
     const photo = formData.get("photo");
     const password = formData.get("password");
 
+    const uppercaseRegex = /(?=.*[A-Z])/;
+    const lowercaseRegex = /(?=.*[a-z])/;
+    const lengthRegex = /.{6,}/;
+
+    if (!uppercaseRegex.test(password)) {
+      toast.error("Password should have at least one uppercase");
+      return;
+    }
+    if (!lowercaseRegex.test(password)) {
+      toast.error("Password should have at least one lowercase");
+      return;
+    }
+    if (!lengthRegex.test(password)) {
+      toast.error("Password should have at least 6 characters or longer");
+      return;
+    }
+
     createUser(email, password)
       .then((res) => {
         toast.success("You registered successfully");
         updateUserProfile(name, photo)
-         .then(()=>{console.log(res)})
-         .catch(error => toast.error(error.code))
+          .then(() => {
+            console.log(res);
+          })
+          .catch((error) => toast.error(error.code));
         form.reset();
-
       })
       .catch((error) => toast.error(error.code));
   };
@@ -37,6 +55,7 @@ const Register = () => {
       })
       .catch((error) => toast.error(error.code));
   };
+
   return (
     <div className="card bg-base-100 w-full max-w-sm mx-auto my-12 shrink-0 shadow-2xl">
       <div className="card-body">

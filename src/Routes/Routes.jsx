@@ -6,6 +6,7 @@ import BrowseTasks from "../Components/BrowseTasks/BrowseTasks";
 import MyPostedTasks from "../Components/MyPostedTasks/MyPostedTasks";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import PrivateRouter from "./PrivateRouter";
 
 export const router = createBrowserRouter([
     {
@@ -18,7 +19,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/addTask',
-                Component: AddTask
+                element: <PrivateRouter><AddTask></AddTask></PrivateRouter>
             },
                         {
                 path: '/browseTasks',
@@ -26,7 +27,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/myPostedTasks',
-                Component: MyPostedTasks
+                element: <PrivateRouter><MyPostedTasks></MyPostedTasks></PrivateRouter>
             },
             {
                 path: '/login',
