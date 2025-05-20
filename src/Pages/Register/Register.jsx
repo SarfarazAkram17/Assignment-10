@@ -1,14 +1,34 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router";
+import { AuthContext } from "../../Authentication/AuthContext";
+import { toast } from "react-toastify";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const photo = formData.get("photo");
+    const password = formData.get("password");
+
+    createUser(email, password)
+      .then(() => {
+        toast.success("You registered successfully");
+        form.reset()
+      })
+      .catch((error) => toast.error(error.code));
+  };
   return (
     <div className="card bg-base-100 w-full max-w-sm mx-auto my-12 shrink-0 shadow-2xl">
       <div className="card-body">
         <h1 className="text-5xl font-bold mb-4">Register Now!</h1>
-        <form className="fieldset">
+        <form onSubmit={handleRegister} className="fieldset">
           <label className="label font-semibold">Name</label>
           <input
             type="text"
