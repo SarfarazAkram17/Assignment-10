@@ -62,16 +62,9 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-40 text-center p-2 shadow"
           >
             {links}
-            {user ? (
-              <button
-                onClick={handleLogout}
-                className="btn btn-error text-xl lg:hidden block my-2"
-              >
-                Log Out
-              </button>
-            ) : (
+            {!user && (
               <Link to="/register" className="lg:hidden block my-2">
-                <button className="btn">Register</button>
+                <button className="btn btn-success text-xl">Register</button>
               </Link>
             )}
           </ul>
@@ -90,23 +83,39 @@ const Navbar = () => {
       </div>
       <div className="navbar-end space-x-2">
         {user ? (
-          <div className="flex gap-2 items-center">
+          <div className="mr-6">
             <img
               src={user.photoURL}
               alt=""
-              data-tooltip-content={user.displayName}
-              data-tooltip-delay-hide={300}
-              data-tooltip-delay-show={50}
-              data-tooltip-place="bottom"
               data-tooltip-id="my-tooltip"
+              data-tooltip-html={`
+          <div>
+            <span class="flex justify-center mt-2 rancho text-2xl font-bold">${user.displayName}</span>
+            <div class="flex justify-center my-4">
+              <button
+              onclick="document.getElementById('tooltip-logout-btn').click()"
+              class="btn btn-error text-xl"
+              >
+                 Log Out
+              </button>
+             </div>
+          </div>
+        `}
               className="rounded-full w-12 h-12 cursor-pointer"
             />
+            <Tooltip
+              className="z-10"
+              id="my-tooltip"
+              delayShow={50}
+              delayHide={200}
+              clickable={true}
+              />
+            {/* Hidden button to handle logout click event */}
             <button
+              id="tooltip-logout-btn"
+              style={{ display: "none" }}
               onClick={handleLogout}
-              className="btn btn-error text-xl hidden lg:block"
-            >
-              Log Out
-            </button>
+            />
           </div>
         ) : (
           <div className="flex gap-2 items-center">

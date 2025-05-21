@@ -7,6 +7,7 @@ import MyPostedTasks from "../Components/MyPostedTasks/MyPostedTasks";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRouter from "./PrivateRouter";
+import ErrorPage from "../Components/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
     {
@@ -42,6 +43,6 @@ export const router = createBrowserRouter([
     },
     {
         path: '*',
-        element: <h1 className="text-red-500 text-7xl flex justify-center items-center h-screen font-bold">404 Page not found</h1>
+        Component: ErrorPage
     }
 ])

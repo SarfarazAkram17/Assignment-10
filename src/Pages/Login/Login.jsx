@@ -32,7 +32,7 @@ const Login = () => {
       .catch((error) => toast.error(error.code));
   };
   return (
-    <div>
+    <div className="px-4">
       <div className="card bg-base-100 w-full max-w-sm mx-auto my-12 shrink-0 shadow-2xl">
         <div className="card-body">
           <h1 className="text-5xl font-bold mb-4">Login Now!</h1>
