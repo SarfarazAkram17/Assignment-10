@@ -15,7 +15,7 @@ const AddTask = () => {
     const formData = new FormData(form);
     const task = Object.fromEntries(formData.entries());
 
-    fetch("http://localhost:3000/tasks", {
+    fetch("https://assignment-10-sarfaraz-akram.vercel.app/tasks", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -32,7 +32,8 @@ const AddTask = () => {
   };
 
   return (
-    <div className="max-w-5xl px-8 py-16 mx-auto rounded-lg my-12 bg-[#F4F3F0]">
+    <div className="px-3">
+      <div className="max-w-5xl px-8 py-16 mx-auto rounded-lg my-12 bg-[#F4F3F0]">
       <h1 className="text-center text-4xl md:text-5xl mb-8 font-bold">
         Add New Task
       </h1>
@@ -147,6 +148,7 @@ const AddTask = () => {
           Add Task
         </button>
       </form>
+    </div>
     </div>
   );
 };

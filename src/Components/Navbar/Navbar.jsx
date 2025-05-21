@@ -30,7 +30,7 @@ const Navbar = () => {
       </NavLink>
       <NavLink
         className="m-1 px-2 py-1 hover:bg-gray-200 font-semibold"
-        to="/myPostedTasks"
+        to='/myPostedTasks'
       >
         My Posted Tasks
       </NavLink>
