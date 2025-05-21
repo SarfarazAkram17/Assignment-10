@@ -17,3 +17,4 @@ daisiui
 sweet alert2
 react toastify
 react-tooltip
+React-simple-typewriter

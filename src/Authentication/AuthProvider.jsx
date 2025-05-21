@@ -11,7 +11,6 @@ import {
 } from "firebase/auth";
 import { auth } from "../../firebase.config";
 
-const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
@@ -28,19 +27,22 @@ const AuthProvider = ({ children }) => {
 
   const googleLogin = () => {
     setLoading(true);
+    const googleProvider = new GoogleAuthProvider();
+    googleProvider.addScope("email");
     return signInWithPopup(auth, googleProvider);
   };
 
   const updateUserProfile = (name, photo) => {
     setLoading(true);
-    return updateProfile(auth.currentUser,{
-      displayName: name, photoURL: photo
-    })
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
   };
 
   const logoutUser = () => {
     setLoading(true);
-    return signOut(auth)
+    return signOut(auth);
   };
 
   useEffect(() => {
@@ -50,7 +52,6 @@ const AuthProvider = ({ children }) => {
     });
 
     return () => unsubscribe();
-
   }, []);
 
   const userInfo = {

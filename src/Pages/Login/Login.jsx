@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Authentication/AuthContext";
 import { toast } from "react-toastify";
 
 const Login = () => {
+  const location = useLocation()
+  const navigate = useNavigate()
   const { googleLogin, loginUser } = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -20,6 +22,7 @@ const Login = () => {
       .then(() => {
         toast.success("You logged in successfully");
         form.reset();
+        navigate(location.state || '/')
       })
       .catch((error) => toast.error(error.code));
   };
@@ -28,6 +31,7 @@ const Login = () => {
     googleLogin()
       .then(() => {
         toast.success("You logged in successfully");
+        navigate(location.state || '/')
       })
       .catch((error) => toast.error(error.code));
   };
@@ -70,6 +74,7 @@ const Login = () => {
             <p className="text-xs my-2">
               Don't have an account ? Please{" "}
               <Link
+                state={location.state}
                 to="/register"
                 className="underline text-blue-500 font-semibold mt-10"
               >
