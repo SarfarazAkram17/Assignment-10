@@ -6,6 +6,7 @@ import { Link } from "react-router";
 const MyPostedTasks = () => {
   const { user } = useContext(AuthContext);
   const [tasks, setTasks] = useState([]);
+  const [loading, setLoading] = useState(true);
   const userEmail = user?.email || user?.providerData?.[0]?.email;
 
   useEffect(() => {
@@ -16,7 +17,8 @@ const MyPostedTasks = () => {
         .then((res) => res.json())
         .then((data) => {
           setTasks(data);
-        });
+          setLoading(false);
+        })
     }
   }, [userEmail]);
 
@@ -26,7 +28,11 @@ const MyPostedTasks = () => {
         My Posted Tasks
       </h1>
 
-      {tasks.length === 0 ? (
+      {loading ? (
+      <div className="flex justify-center h-[50vh] items-center">
+        <span className="loading loading-bars loading-xl"></span>
+      </div>
+      ) : tasks.length === 0 ? (
         <p className="text-center text-gray-500 text-lg">
           You haven’t posted any tasks yet.
         </p>
@@ -44,16 +50,12 @@ const MyPostedTasks = () => {
               </thead>
               <tbody>
                 {tasks.map((task) => (
-                  <tr key={task._id} className="border-b">
-                    <td className="p-3">{task.title}</td>
-                    <td className="p-3 hidden md:table-cell">
-                      {task.category}
-                    </td>
-                    <td className="p-3 hidden md:table-cell">
-                      ${task.budget}
-                    </td>
+                  <tr key={task._id} className="border-b-2 border-gray-200">
+                    <td className="p-3 font-bold">{task.title}</td>
+                    <td className="p-3 hidden md:table-cell">{task.category}</td>
+                    <td className="p-3 hidden md:table-cell">${task.budget}</td>
                     <td className="p-3 flex justify-center gap-2">
-                      <Link>
+                      <Link to={`/updateTask/${task._id}`}>
                         <button className="bg-[#3C393B] btn text-lg rounded-sm my-2 px-2.5 block text-white">
                           <MdEdit />
                         </button>
