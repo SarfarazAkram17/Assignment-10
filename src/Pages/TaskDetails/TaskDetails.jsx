@@ -7,7 +7,7 @@ const TaskDetails = () => {
   return (
     <div className="my-12 px-4">
       <div className="max-w-3xl mx-auto">
-        <Link to='/browseTasks'>
+        <Link to={-1}>
           <BsArrowLeftCircleFill size={22} />
         </Link>
         <h1 className="text-5xl mb-12 text-center">Task Details</h1>

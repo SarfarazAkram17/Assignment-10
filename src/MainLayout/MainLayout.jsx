@@ -10,9 +10,9 @@ const MainLayout = () => {
       <div className="xl:container mx-auto">
         <Navbar></Navbar>
         <Outlet></Outlet>
+      <Footer></Footer>
       </div>
 
-      <Footer></Footer>
       <ToastContainer />
     </div>
   );
