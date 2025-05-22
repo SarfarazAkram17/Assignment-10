@@ -33,11 +33,11 @@ const AddTask = () => {
 
   return (
     <div className="px-3">
-      <div className="max-w-5xl px-8 py-16 mx-auto rounded-lg my-12 bg-[#F4F3F0]">
+      <div className="max-w-5xl px-8 py-16 mx-auto rounded-lg my-12 bg-base-200">
       <h1 className="text-center text-4xl md:text-5xl mb-8 font-bold">
         Add New Task
       </h1>
-      <p className="max-w-2xl md:max-w-3xl leading-5 mx-auto text-center text-xs md:text-sm text-[#1B1A1A] mb-12">
+      <p className="max-w-2xl md:max-w-3xl leading-5 mx-auto text-center text-xs md:text-sm mb-12">
         Welcome to the Add Task page! Here, you can quickly post a task and
         connect with skilled freelancers on TaskWave. Whether you need help with
         web development, design, writing, or marketing — just fill out the form
@@ -57,7 +57,7 @@ const AddTask = () => {
               readOnly
               name="email"
               required
-              className="input w-full bg-white placeholder:text-xs placeholder:font-semibold h-8"
+              className="input w-full bg-base-100 placeholder:text-xs placeholder:font-semibold h-8"
             />
           </fieldset>
 
@@ -69,7 +69,7 @@ const AddTask = () => {
               readOnly
               name="name"
               required
-              className="input w-full bg-white placeholder:text-xs placeholder:font-semibold h-8"
+              className="input w-full bg-base-100 placeholder:text-xs placeholder:font-semibold h-8"
             />
           </fieldset>
 
@@ -79,7 +79,7 @@ const AddTask = () => {
               type="text"
               name="title"
               required
-              className="input w-full bg-white placeholder:text-xs placeholder:font-semibold h-8"
+              className="input w-full bg-base-100 placeholder:text-xs placeholder:font-semibold h-8"
               placeholder="Enter Task Title"
             />
           </fieldset>
@@ -90,7 +90,7 @@ const AddTask = () => {
               defaultValue=""
               name="category"
               required
-              className="select w-full"
+              className="select w-full bg-base-100"
             >
               <option disabled value="">
                 Pick a Category
@@ -115,7 +115,7 @@ const AddTask = () => {
               name="deadline"
               required
               min={today}
-              className="input w-full bg-white placeholder:text-xs placeholder:font-semibold h-8"
+              className="input w-full bg-base-100 placeholder:text-xs placeholder:font-semibold h-8"
             />
           </fieldset>
 
@@ -125,7 +125,7 @@ const AddTask = () => {
               type="number"
               name="budget"
               required
-              className="input w-full bg-white placeholder:text-xs placeholder:font-semibold h-8"
+              className="input w-full bg-base-100 placeholder:text-xs placeholder:font-semibold h-8"
               placeholder="Enter Task Budget"
             />
           </fieldset>
@@ -138,7 +138,7 @@ const AddTask = () => {
               type="text"
               name="description"
               required
-              className="input w-full bg-white placeholder:text-xs placeholder:font-semibold h-8"
+              className="input w-full bg-base-100 placeholder:text-xs placeholder:font-semibold h-8"
               placeholder="Enter Description"
             />
           </fieldset>

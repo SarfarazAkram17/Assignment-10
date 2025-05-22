@@ -12,7 +12,7 @@ const TaskDetails = () => {
         </Link>
         <h1 className="text-5xl mb-12 text-center">Task Details</h1>
       </div>
-      <div className="max-w-3xl mx-auto px-4 md:px-8 py-8 text-center space-y-4 bg-gray-100 border-2 border-gray-200 rounded-xl shadow-lg">
+      <div className="max-w-3xl mx-auto px-4 md:px-8 py-8 text-center space-y-4 bg-base-200 border-2 border-gray-200 rounded-xl shadow-lg">
         <h1 className="text-4xl md:text-5xl font-bold">{task.title}</h1>
         <p className="text-xs font-semibold">{task.category}</p>
         <p>

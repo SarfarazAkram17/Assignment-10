@@ -10,3 +10,9 @@ h1, h2, h3, h4, h5, h6, button, .rancho{
 
 @import "tailwindcss";
 @plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  prefersdark: true;
+}

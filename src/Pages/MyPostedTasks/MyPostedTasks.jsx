@@ -6,7 +6,6 @@ import { Link } from "react-router";
 const MyPostedTasks = () => {
   const { user } = useContext(AuthContext);
   const [tasks, setTasks] = useState([]);
-  const [loading, setLoading] = useState(true);
   const userEmail = user?.email || user?.providerData?.[0]?.email;
 
   useEffect(() => {
@@ -17,18 +16,9 @@ const MyPostedTasks = () => {
         .then((res) => res.json())
         .then((data) => {
           setTasks(data);
-          setLoading(false);
         });
     }
   }, [userEmail]);
-
-  if (loading) {
-    return (
-      <div className="flex justify-center h-[50vh] items-center">
-        <span className="loading loading-bars loading-xl"></span>
-      </div>
-    );
-  }
 
   return (
     <div className="my-12 px-2">
@@ -43,7 +33,7 @@ const MyPostedTasks = () => {
       ) : (
         <div className="max-w-5xl mx-auto overflow-hidden">
           <div className="overflow-hidden rounded-lg">
-            <table className="table-auto w-full border-collapse">
+            <table className="table-auto w-full border-collapse border-2 overflow-hidden border-gray-200">
               <thead className="bg-gray-100 text-gray-800 text-left text-lg">
                 <tr>
                   <th className="p-3">Title</th>
@@ -54,7 +44,7 @@ const MyPostedTasks = () => {
               </thead>
               <tbody>
                 {tasks.map((task) => (
-                  <tr key={task._id} className="border-b hover:bg-gray-50">
+                  <tr key={task._id} className="border-b">
                     <td className="p-3">{task.title}</td>
                     <td className="p-3 hidden md:table-cell">
                       {task.category}
