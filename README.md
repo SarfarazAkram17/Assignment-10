@@ -1,20 +1,54 @@
-# React + Vite
+# 🌊 TaskWave
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**TaskWave** is a responsive and interactive task management web application that allows users to create, browse, and manage tasks with ease. It includes modern UI/UX enhancements and dynamic user interactions.
 
-Currently, two official plugins are available:
+🔗 **Live Site:** (https://assignment-10-sarfaraz-akram.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🌗 **Light & Dark Theme Toggle**
+  - Seamless switch between light and dark modes with persistent theme storage using `localStorage`.
 
-react icons 
-tailwind css
-daisiui
-sweet alert2
-react toastify
-react-tooltip
-React-simple-typewriter
+- 👥 **User Authentication**
+  - Users can register, log in, and log out using Firebase Authentication.
+
+- ➕ **Add & Manage Tasks**
+  - Easily add new tasks and manage your posted tasks.
+
+- 🔎 **Browse Tasks**
+  - View tasks posted by others with a clean interface and intuitive navigation.
+
+- 🎨 **Modern & Stylish UI**
+  - Fully responsive layout styled with Tailwind CSS and DaisyUI, optimized for mobile and desktop.
+
+- 🧠 **Tooltip & Alerts**
+  - Helpful tooltips and interactive alerts for improved user interaction.
+
+- ⌨️ **Animated Typing Effects**
+  - Enhanced text animations using `react-simple-typewriter` for a dynamic feel.
+
+---
+
+## 📦 Packages Used
+
+| Package                    | Purpose                                         |
+|----------------------------|-------------------------------------------------|
+| **React Icons**            | For including beautiful icons across the UI     |
+| **Tailwind CSS**           | Utility-first CSS framework for styling         |
+| **DaisyUI**                | Pre-built Tailwind components for rapid UI      |
+| **SweetAlert2**            | Elegant popup boxes for confirmations           |
+| **React Toastify**         | Toast notifications for better experience       |
+| **React Tooltip**          | Tooltips on hover for additional context        |
+| **React Simple Typewriter**| Animated typewriter effects                     |
+
+---
+
+## 🛠 Tech Stack
+
+- **Framework:** React (with Vite)
+- **Styling:** Tailwind CSS, DaisyUI
+- **Routing:** React Router
+- **Authentication:** Firebase
+- **Hosting:** Netlify

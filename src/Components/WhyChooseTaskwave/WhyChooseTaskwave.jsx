@@ -6,7 +6,7 @@ const WhyChooseTaskwave = () => {
   <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
     Why Choose TaskWave?
   </h2>
-  <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+  <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
     <div className="p-6 bg-base-100 shadow-md rounded-xl text-center">
       <img src="https://i.ibb.co/x8jJWxbT/freelancer.png" alt="Verified Freelancers" className="mx-auto w-16 mb-4"/>
       <h3 className="text-2xl font-semibold mb-2">Verified Freelancers</h3>
