@@ -101,17 +101,17 @@ const MyPostedTasks = () => {
                         <MdDelete />
                       </button>
                       <button
-                        data-tooltip-id="bidInfo"
+                        data-tooltip-id={`bid_Info_${task._id}`}
                         className="btn-info btn text-xl shadow-none rounded-sm my-2 px-2.5 block"
                       >
                         Bid
                       </button>
                       <Tooltip
-                        id="bidInfo"
+                        id={`bid_Info_${task._id}`}
                         className="font-bold"
                         content={`Total Bid: ${task.bid}`}
                         events={"click"}
-                        place="top"
+                        place="left"
                       />
                     </td>
                   </tr>
