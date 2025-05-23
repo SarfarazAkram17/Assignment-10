@@ -14,7 +14,8 @@ const AddTask = () => {
     const form = e.target;
     const formData = new FormData(form);
     const task = Object.fromEntries(formData.entries());
-
+    task.bid = 0
+    task.bidders = []
     fetch("https://assignment-10-sarfaraz-akram.vercel.app/tasks", {
       method: "POST",
       headers: {

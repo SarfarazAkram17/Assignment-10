@@ -4,6 +4,7 @@ import { MdDelete, MdEdit } from "react-icons/md";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import { Tooltip } from "react-tooltip";
 
 const MyPostedTasks = () => {
   const { user } = useContext(AuthContext);
@@ -56,9 +57,14 @@ const MyPostedTasks = () => {
           <span className="loading loading-bars loading-xl"></span>
         </div>
       ) : tasks.length === 0 ? (
-        <p className="text-center text-gray-500 text-lg">
-          You haven’t posted any tasks yet.
-        </p>
+        <div>
+          <h1 className="text-center text-4xl md:text-5xl font-bold mb-8">
+            My Posted Tasks: {tasks.length}
+          </h1>
+          <p className="text-center text-gray-500 text-lg">
+            You haven’t posted any tasks yet.
+          </p>
+        </div>
       ) : (
         <div className="max-w-5xl mx-auto overflow-hidden">
           <h1 className="text-center text-4xl md:text-5xl font-bold mb-8">
@@ -94,6 +100,19 @@ const MyPostedTasks = () => {
                       >
                         <MdDelete />
                       </button>
+                      <button
+                        data-tooltip-id="bidInfo"
+                        className="btn-info btn text-xl shadow-none rounded-sm my-2 px-2.5 block"
+                      >
+                        Bid
+                      </button>
+                      <Tooltip
+                        id="bidInfo"
+                        className="font-bold"
+                        content={`Total Bid: ${task.bid}`}
+                        events={"click"}
+                        place="top"
+                      />
                     </td>
                   </tr>
                 ))}

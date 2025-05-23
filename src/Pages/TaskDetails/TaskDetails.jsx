@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLoaderData } from "react-router";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
+import { toast } from "react-toastify";
+import { AuthContext } from "../../Authentication/AuthContext";
 
 const TaskDetails = () => {
+  const {user} = useContext(AuthContext)
+  const userEmail = user?.email || user?.providerData?.[0]?.email;
   const task = useLoaderData();
+
+
+  const handleBid = (id, email) => {
+    fetch(`https://assignment-10-sarfaraz-akram.vercel.app/tasks/${id}`, {
+      method: "PATCH",
+       headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email: email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.modifiedCount) {
+          toast.success("You Bid successfully for this task");
+        }
+        else{
+          toast.error(data.message)
+        }
+      });
+  };
   return (
     <div className="my-12 px-4">
       <div className="max-w-3xl mx-auto">
@@ -35,7 +59,12 @@ const TaskDetails = () => {
           <strong>Description: </strong>
           {task.description}
         </p>
-        <p></p>
+        <button
+          onClick={() => handleBid(task._id, userEmail)}
+          className="btn btn-info px-14 my-4 text-2xl rounded-full"
+        >
+          Bid Now
+        </button>
       </div>
     </div>
   );

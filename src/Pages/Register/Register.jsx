@@ -111,6 +111,7 @@ const Register = () => {
             <p className="text-xs my-2">
               Already have an account ? Please{" "}
               <Link
+                state={location.state}
                 to="/login"
                 className="underline text-blue-500 font-semibold"
               >
