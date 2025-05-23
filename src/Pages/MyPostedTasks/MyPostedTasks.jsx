@@ -104,7 +104,7 @@ const MyPostedTasks = () => {
                         data-tooltip-id={`bid_Info_${task._id}`}
                         className="btn-info btn text-xl shadow-none rounded-sm my-2 px-2.5 block"
                       >
-                        Bid
+                        Bids
                       </button>
                       <Tooltip
                         id={`bid_Info_${task._id}`}
