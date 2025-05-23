@@ -1,15 +1,17 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../MainLayout/MainLayout";
-import Home from "../Pages/Home/Home";
-import Login from "../Pages/Login/Login";
-import Register from "../Pages/Register/Register";
 import PrivateRoutes from "./PrivateRoutes";
-import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import BrowseTasks from "../Pages/BrowseTasks/BrowseTasks";
 import MyPostedTasks from "../Pages/MyPostedTasks/MyPostedTasks";
 import AddTask from "../Pages/AddTask/AddTask";
 import TaskDetails from "../Pages/TaskDetails/TaskDetails";
 import UpdateTask from "../Pages/UpdateTask/UpdateTask";
+import { lazy, Suspense } from "react";
+
+const Home = lazy(() => import("../Pages/Home/Home"));
+const Login = lazy(() => import("../Pages/Login/Login"));
+const Register = lazy(() => import("../Pages/Register/Register"));
+const ErrorPage = lazy(() => import("../Components/ErrorPage/ErrorPage"));
 
 export const router = createBrowserRouter([
   {
@@ -18,7 +20,17 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: Home,
+        element: (
+          <Suspense
+            fallback={
+              <div className="flex justify-center h-[50vh] items-center">
+                <span className="loading loading-bars loading-xl"></span>
+              </div>
+            }
+          >
+            <Home></Home>
+          </Suspense>
+        ),
       },
       {
         path: "/addTask",
@@ -66,7 +78,10 @@ export const router = createBrowserRouter([
       },
       {
         path: "/updateTask/:id",
-        loader: ({params}) => fetch(`https://assignment-10-sarfaraz-akram.vercel.app/tasks/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://assignment-10-sarfaraz-akram.vercel.app/tasks/${params.id}`
+          ),
         element: (
           <PrivateRoutes>
             <UpdateTask></UpdateTask>
@@ -80,16 +95,46 @@ export const router = createBrowserRouter([
       },
       {
         path: "/login",
-        Component: Login,
+        element: (
+          <Suspense
+            fallback={
+              <div className="flex justify-center h-[50vh] items-center">
+                <span className="loading loading-bars loading-xl"></span>
+              </div>
+            }
+          >
+            <Login></Login>
+          </Suspense>
+        ),
       },
       {
         path: "/register",
-        Component: Register,
+        element: (
+          <Suspense
+            fallback={
+              <div className="flex justify-center h-[50vh] items-center">
+                <span className="loading loading-bars loading-xl"></span>
+              </div>
+            }
+          >
+            <Register></Register>
+          </Suspense>
+        ),
       },
     ],
   },
   {
     path: "*",
-    Component: ErrorPage,
+    element: (
+      <Suspense
+        fallback={
+          <div className="flex justify-center h-[100vh] items-center">
+            <span className="loading loading-bars loading-xl"></span>
+          </div>
+        }
+      >
+        <ErrorPage></ErrorPage>
+      </Suspense>
+    ),
   },
 ]);
