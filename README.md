@@ -20,6 +20,9 @@
 - 🔎 **Browse Tasks**
   - View tasks posted by others with a clean interface and intuitive navigation.
 
+- 💰 **Bid on Tasks**
+  - Users can place bids on available tasks, with logic to prevent multiple bids on the same task by same user and who posted the task.
+
 - 🎨 **Modern & Stylish UI**
   - Fully responsive layout styled with Tailwind CSS and DaisyUI, optimized for mobile and desktop.
 
