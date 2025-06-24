@@ -55,3 +55,8 @@
 - **Routing:** React Router (v7.6.0)
 - **Authentication:** Firebase (v11.7.3)
 - **Hosting:** Netlify
+
+# 🛠️ Getting Started 
+
+git clone https://github.com/SarfarazAkram17/TaskWave.git <br />
+cd TaskWave
