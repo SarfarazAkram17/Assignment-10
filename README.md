@@ -36,22 +36,22 @@
 
 ## 📦 Packages Used
 
-| Package                    | Purpose                                         |
-|----------------------------|-------------------------------------------------|
-| **React Icons**            | For including beautiful icons across the UI     |
-| **Tailwind CSS**           | Utility-first CSS framework for styling         |
-| **DaisyUI**                | Pre-built Tailwind components for rapid UI      |
-| **SweetAlert2**            | Elegant popup boxes for confirmations           |
-| **React Toastify**         | Toast notifications for better experience       |
-| **React Tooltip**          | Tooltips on hover for additional context        |
-| **React Simple Typewriter**| Animated typewriter effects                     |
+| Package                    | Version     | Purpose                                         |
+|----------------------------|-------------|-------------------------------------------------|
+| **React Icons**            | 5.5.0       | For including beautiful icons across the UI     |
+| **Tailwind CSS**           | 4.1.7       | Utility-first CSS framework for styling         |
+| **DaisyUI**                | 5.0.35      | Pre-built Tailwind components for rapid UI      |
+| **SweetAlert2**            | 11.21.2     | Elegant popup boxes for confirmations           |
+| **React Toastify**         | 11.0.5      | Toast notifications for better experience       |
+| **React Tooltip**          | 5.28.1      | Tooltips on hover for additional context        |
+| **React Simple Typewriter**| 5.0.1       | Animated typewriter effects                     |
 
 ---
 
 ## 🛠 Tech Stack
 
-- **Framework:** React (with Vite)
-- **Styling:** Tailwind CSS, DaisyUI
-- **Routing:** React Router
-- **Authentication:** Firebase
+- **Framework:** React (v19.1.0) (with Vite v6.3.5)
+- **Styling:** Tailwind CSS (v4.1.7), DaisyUI (v5.0.35)
+- **Routing:** React Router (v7.6.0)
+- **Authentication:** Firebase (v11.7.3)
 - **Hosting:** Netlify
